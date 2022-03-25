@@ -1,0 +1,7 @@
+.dccache
+*alet.js
+test.*
+code/**
+*node_modules/**
+safeloaderjs-*.tgz
+.paths

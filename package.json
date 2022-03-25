@@ -12,6 +12,10 @@
     "logmyerr",
     "yojojs"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arunsakthivel96/saferloader.git"
+  },
   "author": "Arun kumar sakthivel",
   "license": "MIT"
 }

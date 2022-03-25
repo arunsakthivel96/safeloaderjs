@@ -1,11 +1,10 @@
-
 {
   "name": "safeloaderjs",
   "version": "1.0.0",
   "description": "This safe loader is helps to handel the paths while using the require or import the modules from configaration.",
   "module": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [
     "safeloaderjs",
@@ -17,5 +16,8 @@
     "url": "https://github.com/arunsakthivel96/saferloader.git"
   },
   "author": "Arun kumar sakthivel",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^27.5.1"
+  }
 }

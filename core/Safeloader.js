@@ -28,10 +28,10 @@ class PrivateSafeloader {
     }
     #path = "";
     getPaths(path) {
-        this.#path = path || this.#getCallerPath();
+        this.#path = path || this.getCallerPath();
         return this.setShortcut(this.#path);
       }
-    #getCallerPath(){
+    getCallerPath(){
         let error = new Error();
         let regex = /at require \(internal\/module\.js:11:18\)\n.+\((.*):\d+:\d+\)/m;
         if(!error.stack.match(regex)){
@@ -49,7 +49,7 @@ class PrivateSafeloader {
     }
 
     #getRoot(){
-        let path = dirname(this.#getCallerPath());
+        let path = dirname(this.getCallerPath());
         let modules = Object.keys(this.#shortcutMatchs).reverse();
         let getModule = this.#moduleFinder(path);
 

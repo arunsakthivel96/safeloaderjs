@@ -1,3 +1,6 @@
 let getsafeloader = require('./core/Safeloader');
-const safeloader = getsafeloader.getInstance(module.parent.filename || "");
+let safepath = module.parent;
+safepath = safepath != null ? safepath.filename : module.filename;
+
+const safeloader = getsafeloader.getInstance(safepath);
 module.exports = safeloader;

@@ -20,6 +20,7 @@ We have simplified this process by using the SaferLoaderJS.
 # Example
 🌐 router.js
 ```javascript
+require('safeloaderjs.js)
 let  express  =  require('express');
 let  router  =  express.Router(); 
 let HomeController = require('@Ctrl/HomeController.js');

@@ -1,6 +1,8 @@
 # SafeloaderJS 👨‍💻
 [![npm version](https://badge.fury.io/js/safeloaderjs.svg)](https://badge.fury.io/js/safeloaderjs)
+
 [![NPM Downloads][downloads-image]][downloads-url]
+
 ![PackageBuild](https://github.com/arunsakthivel96/safeloaderjs/actions/workflows/node.js.yml/badge.svg)
 ----
 ### SafeloaderJS - Features 
@@ -40,8 +42,11 @@ module.exports = router;
 ## License
 [MIT](LICENSE)
 
+#### Reference 
+
+#### [GitHub](https://github.com/sultan99/sexy-require)  
+----
 
 [downloads-image]: https://badgen.net/npm/dm/safeloaderjs
 [downloads-url]: https://npmjs.org/package/safeloaderjs
-#### Reference 
-[GitHub](https://github.com/sultan99/sexy-require)  
+

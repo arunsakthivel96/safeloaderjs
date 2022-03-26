@@ -9,3 +9,4 @@ safeloaderjs-*.tgz
 .github/**
 tester.js
 *__tests__/**
+package-lock.json

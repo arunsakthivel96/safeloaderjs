@@ -6,17 +6,21 @@ const join = require(`path`).join
 const normalize = require(`path`).normalize
 const existsSync = require(`fs`).existsSync
 const readFileSync = require(`fs`).readFileSync
+const fs = require("fs");
 
 const Module = require(`module`)
 var include = Module.prototype.require
 
 Module.prototype.require = function(path) {
     let safeloaderJS = Safeloader.getInstance(path);
-    
     var dir = path
+    if(!safeloaderJS.isModuleAndIsExist(path)){
+        path = `${path}.js`;
+    }
     if (path[0] === `.`) return include.call(this, path);
     if (path[0] === `/`) dir = safeloaderJS.getRootPth(path) || path;
-    if (path[0] === `@`) dir = safeloaderJS.setShortcutsPath(path) || path;
+    if (path[0] === `@`) {dir = safeloaderJS.setShortcutsPath(path) || path;}
+    if (safeloaderJS.isFileAndIsExist(path)[0] && safeloaderJS.isFileAndIsExist(path)[1]) { return safeloaderJS.GetTheFileData(path);}
     if (path === `safeloaderjs`) return safeloaderJS.getPaths();
     return include.call(this, dir)
   }
@@ -100,6 +104,30 @@ class PrivateSafeloader {
         return option;
 
     }
+    GetTheFileData(path){
+        // read the JSON file 
+        let exactPath = this.setShortcutsPath(path);
+        let isFileExists = existsSync(exactPath);
+        if(!isFileExists) return false;
+        let data = fs.readFileSync(exactPath, {encoding: `utf8`}, (err, data) => {
+            if(err) throw err;
+            return JSON.parse(data);
+        });
+        return data;
+    }
+    // Check the file is a module or a file
+    isFileAndIsExist =(path)=>{
+        let isJson = path.includes('.json');
+        if(!isJson) return [false, false];
+        let exactPath= this.setShortcutsPath(path);
+        let isFileExists = existsSync(exactPath);
+        return [isJson, isFileExists];
+    }
+    isModuleAndIsExist =(path)=>{
+        let isJsFile = path.includes('.js');
+        return isJsFile;
+    }
+
 }
 
 class Safeloader{

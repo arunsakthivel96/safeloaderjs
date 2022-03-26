@@ -20,7 +20,7 @@ We have simplified this process by using the SaferLoaderJS.
 # Example
 🌐 router.js
 ```javascript
-require('safeloaderjs.js)
+require('safeloaderjs'); // it's very important that we have to use it on top of our code.
 let  express  =  require('express');
 let  router  =  express.Router(); 
 let HomeController = require('@Ctrl/HomeController.js');
@@ -32,7 +32,10 @@ module.exports = router;
 ```
 @Ctrl = /Controllers/
 ```
-
+----
+#### SafeLoaderJS - v1.0
+- If the path not provided it takes the default path.
+- Even if you import this modules in multiple file it use the single instance. 
 
 ## License
 [MIT](LICENSE)

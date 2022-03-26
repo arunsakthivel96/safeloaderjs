@@ -1,6 +1,6 @@
 {
   "name": "safeloaderjs",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "This safe loader is helps to handel the paths while using the require or import the modules from configaration.",
   "module": "index.js",
   "scripts": {
